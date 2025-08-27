@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 import { BlogPost } from "@/types";
-import { PlusIcon } from "lucide-react";
-import Link from "next/link";
 
 export default async function Home() {
   const response = await fetch(
@@ -38,7 +36,7 @@ export default async function Home() {
           <Separator />
         </div>
         {/* Posts List */}
-        {posts.length === 0 ? (
+        {!posts || posts?.length === 0 ? (
           <div className="text-center py-12">
             <h2 className="text-2xl font-semibold text-muted-foreground mb-4">
               No posts yet

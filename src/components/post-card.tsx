@@ -1,5 +1,3 @@
-import { BlogPost } from "@/types";
-import React from "react";
 import {
   Card,
   CardContent,
@@ -7,9 +5,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { BlogPost } from "@/types";
 import { formatDate } from "@/utils/formatDate";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PostCard({ post }: { post: BlogPost }) {
   return (
@@ -46,8 +45,8 @@ export default function PostCard({ post }: { post: BlogPost }) {
           </CardHeader>
           {post.content && (
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed truncate">
-                {post.content}
+              <p className="text-muted-foreground leading-relaxed line-clamp-3 break-words">
+                {post.content.substring(0, 150)}...
               </p>
               <Link
                 href={`/posts/${post._id}`}
