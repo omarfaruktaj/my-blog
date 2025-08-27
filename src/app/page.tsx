@@ -1,3 +1,4 @@
+import CreatePostDialog from "@/components/create-post-dialog";
 import PostCard from "@/components/post-card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -31,12 +32,7 @@ export default async function Home() {
               Thoughts, stories, and ideas from my journey
             </p>
           </div>
-          <Link href="/create">
-            <Button className="flex items-center gap-2">
-              <PlusIcon className="h-4 w-4" />
-              New Post
-            </Button>
-          </Link>
+          <CreatePostDialog />
         </div>
         <div className="my-4">
           <Separator />
@@ -50,9 +46,9 @@ export default async function Home() {
             <p className="text-muted-foreground mb-6">
               Get started by creating your first blog post.
             </p>
-            <Link href="/create">
+            <CreatePostDialog>
               <Button>Create Your First Post</Button>
-            </Link>
+            </CreatePostDialog>
           </div>
         ) : (
           <div className="space-y-6">
